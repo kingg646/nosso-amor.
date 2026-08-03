@@ -1,88 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nosso Diário</title>
-    <style>
-        body {
-            background: linear-gradient(135deg, #ff758c, #ff7eb3);
-            color: #fff;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
-        .card {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            max-width: 350px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        h1, h2 { font-size: 1.5rem; margin-bottom: 15px; }
-        p { font-size: 1.1rem; line-height: 1.6; }
-        .heart { font-size: 3rem; margin-bottom: 15px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nosso Diário</title>
+
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "8de67aa1-123f-438c-b6ce-85c1d48ce75d",
+    });
+  });
+</script>
+
+<style>
+body {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+}
+.card {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 20px;
+}
+</style>
 </head>
 <body>
-
-    <div class="card">
-        <div class="heart">❤️</div>
-        <h2>Mensagem do Dia</h2>
-        <p id="mensagem">Carregando carinho...</p>
-        
-        <!-- Botão para ativar as notificações -->
-        <div style="margin-top: 25px;">
-            <button id="btnNotificacao" onclick="pedirPermissao()" style="background-color: #ff4d6d; color: white; border: none; padding: 12px 20px; border-radius: 20px; font-size: 15px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
-                Ativar Notificações de Amor 🔔
-            </button>
-        </div>
-    </div>
-
-    <script>
-        const frases = [
-            "Bom dia, meu amor! Você é a razão do meu sorriso.",
-            "Passando para te lembrar que o meu pensamento está em você.",
-            "Independente de como seja o seu dia, saiba que eu te amo muito.",
-            "Você deixa a minha vida inteira muito mais feliz e colorida.",
-            "Só um lembrete rápido: você é a pessoa mais especial do mundo.",
-            "Contando os minutos para te ver de novo, meu amor!"
-        ];
-
-        const hoje = new Date();
-        const diaDoAno = Math.floor((hoje - new Date(hoje.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
-        const indice = diaDoAno % frases.length;
-        document.getElementById("mensagem").innerText = frases[indice];
-
-        async function pedirPermissao() {
-            if (!('Notification' in window)) {
-                alert('Este navegador não suporta notificações.');
-                return;
-            }
-
-            const permissao = await Notification.requestPermission();
-            
-            if (permissao === 'granted') {
-                alert('Prontinho! Agora você vai receber as mensagens de amor todos os dias. ❤️');
-                
-                if ('serviceWorker' in navigator) {
-                    navigator.serviceWorker.register('sw.js').then(function(reg) {
-                        console.log('Service Worker registrado com sucesso!', reg);
-                    }).catch(function(err) {
-                        console.log('Falha ao registrar o Service Worker:', err);
-                    });
-                }
-            } else {
-                alert('Você negou as permissões. Para receber as cartinhas, permita as notificações nas configurações do navegador.');
-            }
-        }
-    </script>
+<div class="card">
+    <h1>Nosso Amor</h1>
+    <p>Bem-vindo ao nosso cantinho especial. ❤️</p>
+</div>
 </body>
 </html>
