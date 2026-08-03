@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nosso Diário</title>
-    <!-- Deixa com cara de aplicativo nativo no celular -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
     <style>
         body {
             background: linear-gradient(135deg, #ff758c, #ff7eb3);
@@ -27,9 +24,9 @@
             padding: 30px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             max-width: 350px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        h1, h2 { font-size: 1.5rem; margin-bottom: 20px; }
+        h1, h2 { font-size: 1.5rem; margin-bottom: 15px; }
         p { font-size: 1.1rem; line-height: 1.6; }
         .heart { font-size: 3rem; margin-bottom: 15px; }
     </style>
@@ -39,59 +36,53 @@
     <div class="card">
         <div class="heart">❤️</div>
         <h2>Mensagem do Dia</h2>
-        <p id="mensagem">Carregando carinho de hoje...</p>
+        <p id="mensagem">Carregando carinho...</p>
+        
+        <!-- Botão para ativar as notificações -->
+        <div style="margin-top: 25px;">
+            <button id="btnNotificacao" onclick="pedirPermissao()" style="background-color: #ff4d6d; color: white; border: none; padding: 12px 20px; border-radius: 20px; font-size: 15px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+                Ativar Notificações de Amor 🔔
+            </button>
+        </div>
     </div>
 
     <script>
-        // Lista de mensagens românticas que vão rodando
         const frases = [
-            "Bom dia, meu amor! Você é a razão do meu sorriso todos os dias.",
-            "Passando para te lembrar que o meu lugar favorito é do seu lado.",
-            "Independente de como seja o seu dia, saiba que eu te amo muito!",
+            "Bom dia, meu amor! Você é a razão do meu sorriso.",
+            "Passando para te lembrar que o meu pensamento está em você.",
+            "Independente de como seja o seu dia, saiba que eu te amo muito.",
             "Você deixa a minha vida inteira muito mais feliz e colorida.",
-            "Só um lembrete rápido: você é a pessoa mais incrível do mundo!",
-            "Contando os minutos para te ver de novo. Tenha um dia maravilhoso, mozão!"
+            "Só um lembrete rápido: você é a pessoa mais especial do mundo.",
+            "Contando os minutos para te ver de novo, meu amor!"
         ];
 
-        // Pega o dia do ano atual para mudar a mensagem automaticamente todo dia
         const hoje = new Date();
         const diaDoAno = Math.floor((hoje - new Date(hoje.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
         const indice = diaDoAno % frases.length;
-
-        // Exibe a mensagem correspondente ao dia
         document.getElementById("mensagem").innerText = frases[indice];
+
+        async function pedirPermissao() {
+            if (!('Notification' in window)) {
+                alert('Este navegador não suporta notificações.');
+                return;
+            }
+
+            const permissao = await Notification.requestPermission();
+            
+            if (permissao === 'granted') {
+                alert('Prontinho! Agora você vai receber as mensagens de amor todos os dias. ❤️');
+                
+                if ('serviceWorker' in navigator) {
+                    navigator.serviceWorker.register('sw.js').then(function(reg) {
+                        console.log('Service Worker registrado com sucesso!', reg);
+                    }).catch(function(err) {
+                        console.log('Falha ao registrar o Service Worker:', err);
+                    });
+                }
+            } else {
+                alert('Você negou as permissões. Para receber as cartinhas, permita as notificações nas configurações do navegador.');
+            }
+        }
     </script>
 </body>
 </html>
-<!-- Botão para ativar as notificações -->
-<div style="text-align: center; margin-top: 20px;">
-    <button id="btnNotificacao" onclick="pedirPermissao()" style="background-color: #ff4d6d; color: white; border: none; padding: 10px 20px; border-radius: 20px; font-size: 16px; cursor: pointer;">
-        Ativar Notificações de Amor 🔔
-    </button>
-</div>
-
-<script>
-async function pedirPermissao() {
-    if (!('Notification' in window)) {
-        alert('Este navegador não suporta notificações.');
-        return;
-    }
-
-    const permissao = await Notification.requestPermission();
-    
-    if (permissao === 'granted') {
-        alert('Prontinho! Agora você vai receber as mensagens de amor todos os dias. ❤️');
-        
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js').then(function(reg) {
-                console.log('Service Worker registrado com sucesso!', reg);
-            }).catch(function(err) {
-                console.log('Falha ao registrar o Service Worker:', err);
-            });
-        }
-    } else {
-        alert('Você negou as permissões. Para receber as cartinhas, permita as notificações nas configurações do navegador.');
-    }
-}
-</script>
-
