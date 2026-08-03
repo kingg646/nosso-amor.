@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Diário</title>
+    <!-- Deixa com cara de aplicativo nativo no celular -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            max-width: 350px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        h1, h2 { font-size: 1.5rem; margin-bottom: 20px; }
+        p { font-size: 1.1rem; line-height: 1.6; }
+        .heart { font-size: 3rem; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="heart">❤️</div>
+        <h2>Mensagem do Dia</h2>
+        <p id="mensagem">Carregando carinho de hoje...</p>
+    </div>
+
+    <script>
+        // Lista de mensagens românticas que vão rodando
+        const frases = [
+            "Bom dia, meu amor! Você é a razão do meu sorriso todos os dias.",
+            "Passando para te lembrar que o meu lugar favorito é do seu lado.",
+            "Independente de como seja o seu dia, saiba que eu te amo muito!",
+            "Você deixa a minha vida inteira muito mais feliz e colorida.",
+            "Só um lembrete rápido: você é a pessoa mais incrível do mundo!",
+            "Contando os minutos para te ver de novo. Tenha um dia maravilhoso, mozão!"
+        ];
+
+        // Pega o dia do ano atual para mudar a mensagem automaticamente todo dia
+        const hoje = new Date();
+        const diaDoAno = Math.floor((hoje - new Date(hoje.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+        const indice = diaDoAno % frases.length;
+
+        // Exibe a mensagem correspondente ao dia
+        document.getElementById("mensagem").innerText = frases[indice];
+    </script>
+</body>
+</html>
