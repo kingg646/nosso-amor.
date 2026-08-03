@@ -1,0 +1,18 @@
+name: Enviar Mensagem de Amor
+
+on:
+  schedule:
+    - cron: '0 12 * * *' # Roda todo dia às 12:00 (horário UTC)
+  workflow_dispatch: # Permite testar manualmente clicando em um botão
+
+jobs:
+  enviar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v4
+
+      - name: Executar Notificação
+        run: |
+          echo "Mensagem de amor enviada com sucesso!"
+          
