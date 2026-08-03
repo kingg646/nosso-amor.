@@ -1,0 +1,35 @@
+name: Enviar Mensagem Romantica Diaria
+
+on:
+  schedule:
+    - cron: '0 7 * * *'
+    - cron: '0 16 * * *'
+  workflow_dispatch:
+
+jobs:
+  enviar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enviar mensagem aleatoria via WhatsApp
+        env:
+          TWILIO_SID: ${{ secrets.TWILIO_SID }}
+          TWILIO_TOKEN: ${{ secrets.TWILIO_TOKEN }}
+          TO_PHONE_NUMBER: ${{ secrets.TO_PHONE_NUMBER }}
+        run: |
+          MESSAGES=(
+            "O seu sorriso é a luz que ilumina todos os meus dias escuros. ❤️"
+            "Cada momento ao seu lado é um presente que guardo no coração. ✨"
+            "Você é a melhor parte do meu dia, do começo ao fim. 💖"
+            "O seu abraço é o meu lugar favorito no mundo inteiro. ☀️"
+            "Eu te amo mais do que as palavras conseguem expressar. 🌹"
+          )
+          
+          RANDOM_INDEX=$(( RANDOM % ${#MESSAGES[@]} ))
+          SELECTED_MESSAGE="${MESSAGES[$RANDOM_INDEX]}"
+          
+          curl -X POST "https://api.twilio.com/2010-04-01/Accounts/$TWILIO_SID/Messages.json" \
+            --data-urlencode "Body=$SELECTED_MESSAGE" \
+            --data-urlencode "From=whatsapp:+14155238886" \
+            --data-urlencode "To=whatsapp:+$TO_PHONE_NUMBER" \
+            -u "$TWILIO_SID:$TWILIO_TOKEN"
+            
