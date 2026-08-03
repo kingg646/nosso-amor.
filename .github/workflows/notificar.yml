@@ -20,7 +20,7 @@ jobs:
           TO_PHONE_NUMBER: ${{ secrets.TO_PHONE_NUMBER }}
         run: |
           MESSAGES=(
-            "O seu sorriso é a luz que ilumina todos os meus dias escuros. ❤️"
+            "O seu sorriso é a luz que ilumina todos os meus dias escuros. ❤️❤️"
             "Cada momento ao seu lado é um presente que guardo no coração. ✨"
             "Você é a melhor parte do meu dia, do começo ao fim. 💖"
             "O seu abraço é o meu lugar favorito no mundo inteiro. ☀️"
