@@ -1,35 +1,383 @@
-name: Enviar Mensagem Romantica Diaria
+name: Enviar Mensagem Romântica Diária
 
 on:
   schedule:
     - cron: '0 7 * * *'
-    - cron: '0 16 * * *'
   workflow_dispatch:
 
 jobs:
   enviar:
     runs-on: ubuntu-latest
     steps:
-      - name: Enviar mensagem aleatoria via WhatsApp
+      - name: Enviar mensagem aleatória via WhatsApp
         env:
           TWILIO_SID: ${{ secrets.TWILIO_SID }}
           TWILIO_TOKEN: ${{ secrets.TWILIO_TOKEN }}
           TO_PHONE_NUMBER: ${{ secrets.TO_PHONE_NUMBER }}
         run: |
           MESSAGES=(
-            "O seu sorriso é a luz que ilumina todos os meus dias escuros. ❤️"
-            "Cada momento ao seu lado é um presente que guardo no coração. ✨"
-            "Você é a melhor parte do meu dia, do começo ao fim. 💖"
-            "O seu abraço é o meu lugar favorito no mundo inteiro. ☀️"
-            "Eu te amo mais do que as palavras conseguem expressar. 🌹"
+              "você é a razão do meu sorriso mais sincero todos os dias. ✨"
+              "seu abraço é o meu refúgio favorito no mundo inteiro. 🫂"
+              "acordar sabendo que você existe deixa meu dia muito mais feliz. ☀️"
+              "seu sorriso tem o poder de iluminar até os meus dias mais cinzentos. 💖"
+              "obrigado por ser essa pessoa incrível que transborda amor em tudo o que faz. 🌸"
+              "cada segundo ao seu lado é um presente que eu guardo no coração. ⏳"
+              "você é o meu pensamento favorito logo cedo e a minha última lembrança antes de dormir. 🌙"
+              "seu olhar me traz uma paz que eu nunca encontrei em nenhum outro lugar. 👀"
+              "eu amo a forma como você cuida de mim e dos detalhes da nossa vida. 💞"
+              "você é a melhor parte da minha rotina e de todos os nossos planos. 🗺️"
+              "nem nos meus melhores sonhos eu poderia imaginar alguém tão especial quanto você. 💭"
+              "sua risada é a melodia mais bonita que eu poderia ouvir. 🎶"
+              "ao seu lado, eu me sinto em casa em qualquer lugar do mundo. 🏡"
+              "você é a certeza bonita que a vida me deu. 🌷"
+              "todo o meu amor, carinho e gratidão são inteiramente seus, hoje e sempre. ♾️"
+              "você é a poesia mais linda que a vida escreveu para mim. 📖"
+              "seu jeito de olhar para mim faz o tempo parar por um instante. ⏱️"
+              "eu amo o seu cheiro, o seu toque e o seu jeitinho único de ser. 🌹"
+              "você é a calmaria que acalma qualquer tempestade dentro de mim. 🌊"
+              "dividir a vida com você é a melhor aventura que eu poderia viver. 🚀"
+              "seu sorriso bobo é a coisa mais fofa do mundo. 😊"
+              "você é o meu sonho mais lindo que virou realidade. ✨"
+              "seu olhar me fascina e me prende de um jeito único. 👁️"
+              "você é a minha paz quando tudo ao redor é barulho. 🤫"
+              "seu amor me dá forças para enfrentar qualquer barreira. 🏋️"
+              "você é a estrela que guia os meus passos no escuro. 🌟"
+              "eu escolheria você em mil outras vidas, sem hesitar. 🔄"
+              "seu perfume é a minha lembrança favorita de você. 🌸"
+              "você é a doçura que equilibra a rotina pesada. 🍫"
+              "seu abraço é a casa onde meu coração escolheu morar. 🏡"
+              "você é a doçura e a força que me completam por inteiro. 🧩"
+              "amor, você é a razão do meu viver e a paz do meu ser. 🕊️"
+              "cada segundo ao seu lado é um tesouro guardado na alma. 💎"
+              "você é a melodia mais linda que a vida tocou para mim. 🎵"
+              "seu sorriso ilumina até os meus dias mais nublados. ⛅"
+              "te amo hoje, amanhã e por toda a eternidade. ♾️"
+              "você é a minha melhor amiga e o meu grande amor. 💛"
+              "seu abraço é o único lugar onde eu quero estar. 💙"
+              "com você, a vida tem muito mais cor e sentido. 🎨"
+              "seu sorriso é o mapa que me guia para a felicidade. 🗺️"
+              "você é a minha alegria diária, sem tirar nem pôr. ➕"
+              "eu amo a sua generosidade e o cuidado com todos ao redor. 🤲"
+              "seu refúgio favorito contra o cansaço do mundo. 🛏️"
+              "seu amor me faz sentir gigante diante de qualquer problema. 🦸‍♂️"
+              "você é a minha melhor história para contar para sempre. 📚"
+              "eu amo o som dos seus passos se aproximando de mim. 👣"
+              "você é a luz que brilha forte no meu horizonte. 🌔"
+              "seu abraço é o porto onde meu barco finalmente descansa. ⚓"
+              "você é a doçura que adoça as minhas horas mais amargas. 🍮"
+              "eu amo o jeito que você sonha com o nosso amanhã. 🔮"
+              "você é a minha melhor certeza em meio a tantas dúvidas. 🧭"
+              "até os meus dias comuns viram festa quando você está por perto. 🎉"
+              "amor, você é a minha alegria diária, sem tirar nem pôr e seu carinho me faz bem. 💞"
+              "amor, você é a poesia mais linda que a vida escreveu para mim e ter você é uma bênção. ✨"
+              "amor, seu amor me faz sentir gigante diante de qualquer problema e cada detalhe seu me encanta. 💖"
+              "amor, seu abraço é o meu refúgio favorito no mundo inteiro e pensar em você me traz paz. 🥹"
+              "amor, cada segundo ao seu lado é um tesouro guardado na alma e caminhar ao seu lado é maravilhoso. 🥹"
+              "amor, eu amo o som dos seus passos se aproximando de mim e pensar em você me traz paz. 🌷"
+              "amor, seu abraço é o único lugar onde eu quero estar e seu carinho me faz bem. 🌸"
+              "amor, você é a minha melhor história para contar para sempre e seu amor é meu porto seguro. 💞"
+              "amor, você é a melhor parte da minha rotina e de todos os nossos planos e seu amor é meu porto seguro. ✨"
+              "amor, cada segundo ao seu lado é um presente que eu guardo no coração e sua presença é tudo para mim. 🌹"
+              "amor, seu olhar me fascina e me prende de um jeito único e seu carinho me faz bem. 🌷"
+              "amor, seu sorriso ilumina até os meus dias mais nublados e cada detalhe seu me encanta. ✨"
+              "amor, te amo hoje, amanhã e por toda a eternidade e seu amor é meu porto seguro. ✨"
+              "amor, ao seu lado, eu me sinto em casa em qualquer lugar do mundo e seu carinho me faz bem. 🥹"
+              "amor, eu amo o jeito que você sonha com o nosso amanhã e sua presença é tudo para mim. 🥹"
+              "amor, você é o meu pensamento favorito logo cedo e a última lembrança antes de dormir e você enche minha vida de alegria. 🌷"
+              "amor, você é a minha alegria diária, sem tirar nem pôr e ter você é uma bênção. 🌹"
+              "amor, seu olhar me fascina e me prende de um jeito único e você enche minha vida de alegria. ✨"
+              "amor, com você, a vida tem muito mais cor e sentido e caminhar ao seu lado é maravilhoso. 🥹"
+              "amor, nem nos meus melhores sonhos eu poderia imaginar alguém tão especial quanto você e cada detalhe seu me encanta. 💞"
+              "amor, você é a minha alegria diária, sem tirar nem pôr e seu amor é meu porto seguro. 💖"
+              "amor, todo o meu amor, carinho e gratidão são inteiramente seus, hoje e sempre e seu amor é meu porto seguro. 🌟"
+              "amor, eu amo o seu cheiro, o seu toque e o seu jeitinho único de ser e pensar em você me traz paz. ✨"
+              "eu amo o som dos seus passos se aproximando de mim, você é preciosa demais para mim. 🌷"
+              "amor, você é a estrela que guia os meus passos no escuro e ter você é uma bênção. 💞"
+              "amor, eu amo a forma como você cuida de mim e dos detalhes da nossa vida e caminhar ao seu lado é maravilhoso. 💛"
+              "amor, seu jeito de olhar para mim faz o tempo parar por um instante e cada detalhe seu me encanta. 🌹"
+              "amor, todo o meu amor, carinho e gratidão são inteiramente seus, hoje e sempre e caminhar ao seu lado é maravilhoso. 🌷"
+              "amor, cada segundo ao seu lado é um presente que eu guardo no coração e sua presença é tudo para mim. 🌸"
+              "amor, você é a minha alegria diária, sem tirar nem pôr e cada detalhe seu me encanta. ✨"
+              "amor, obrigado por ser essa pessoa incrível que transborda amor em tudo o que faz e cada detalhe seu me encanta. ✨"
+              "amor, seu abraço é a casa onde meu coração escolheu morar e caminhar ao seu lado é maravilhoso. 💖"
+              "amor, seu amor me faz sentir gigante diante de qualquer problema e caminhar ao seu lado é maravilhoso. 💞"
+              "amor, eu amo o jeito que você sonha com o nosso amanhã e sua presença é tudo para mim. 💞"
+              "amor, seu perfume é a minha lembrança favorita de você e você é meu sol em dias chuvosos. 💖"
+              "amor, você é a luz que brilha forte no meu horizonte e caminhar ao seu lado é maravilhoso. 🌸"
+              "amor, cada segundo ao seu lado é um tesouro guardado na alma e você enche minha vida de alegria. 💛"
+              "amor, com você, a vida tem muito mais cor e sentido e ter você é uma bênção. 🌹"
+              "amor, você é a doçura que adoça as minhas horas mais amargas e caminhar ao seu lado é maravilhoso. 💛"
+              "amor, você é a razão do meu sorriso mais sincero todos os dias e você é meu sol em dias chuvosos. 💖"
+              "amor, seu olhar me traz uma paz que eu nunca encontrei em nenhum outro lugar e você enche minha vida de alegria. 🥹"
+              "amor, seu sorriso tem o poder de iluminar até os meus dias mais cinzentos e sua presença é tudo para mim. ✨"
+              "amor, você é a luz que brilha forte no meu horizonte e sua presença é tudo para mim. 💛"
+              "amor, eu amo o jeito que você sonha com o nosso amanhã e ter você é uma bênção. 🌷"
+              "amor, te amo hoje, amanhã e por toda a eternidade e você enche minha vida de alegria. 💛"
+              "amor, com você, a vida tem muito mais cor e sentido e pensar em você me traz paz. 💛"
+              "amor, você é a doçura que adoça as minhas horas mais amargas e você enche minha vida de alegria. 🌟"
+              "amor, seu refúgio favorito contra o cansaço do mundo e você é meu sol em dias chuvosos. 💛"
+              "amor, você é a doçura que equilibra a rotina pesada e pensar em você me traz paz. 🥹"
+              "amor, obrigado por ser essa pessoa incrível que transborda amor em tudo o que faz e seu carinho me faz bem. ✨"
+              "amor, te amo hoje, amanhã e por toda a eternidade e pensar em você me traz paz. 💖"
+              "amor, obrigado por ser essa pessoa incrível que transborda amor em tudo o que faz e pensar em você me traz paz. ✨"
+              "amor, acordar sabendo que você existe deixa meu dia muito mais feliz e sua presença é tudo para mim. 💛"
+              "amor, você é a poesia mais linda que a vida escreveu para mim e você é meu sol em dias chuvosos. 🥹"
+              "amor, seu sorriso ilumina até os meus dias mais nublados e você é meu sol em dias chuvosos. 🥹"
+              "amor, você é a minha melhor certeza em meio a tantas dúvidas e cada detalhe seu me encanta. 🥹"
+              "amor, você é o meu pensamento favorito logo cedo e a última lembrança antes de dormir e cada detalhe seu me encanta. 🌹"
+              "seu perfume é a minha lembrança favorita de você, você é graciosa demais para mim. 💖"
+              "amor, seu amor me faz sentir gigante diante de qualquer problema e seu carinho me faz bem. 🌟"
+              "amor, você é a luz que brilha forte no meu horizonte e sua presença é tudo para mim. 🥹"
+              "amor, ao seu lado, eu me sinto em casa em qualquer lugar do mundo e caminhar ao seu lado é maravilhoso. 🌷"
+              "amor, eu amo a forma como você cuida de mim e dos detalhes da nossa vida e ter você é uma bênção. 💞"
+              "amor, seu abraço é a casa onde meu coração escolheu morar e sua presença é tudo para mim. 🌷"
+              "amor, até os meus dias comuns viram festa quando você está por perto e seu carinho me faz bem. 💛"
+              "amor, você é a razão do meu sorriso mais sincero todos os dias e pensar em você me traz paz. 🌸"
+              "amor, eu escolheria você em mil outras vidas, sem hesitar e você é meu sol em dias chuvosos. 🥹"
+              "amor, você é a estrela que guia os meus passos no escuro e ter você é uma bênção. 🌟"
+              "amor, você é a razão do meu sorriso mais sincero todos os dias e você enche minha vida de alegria. 🌷"
+              "amor, você é a calmaria que acalma qualquer tempestade dentro de mim e caminhar ao seu lado é maravilhoso. 🌷"
+              "amor, você é a melhor parte da minha rotina e de todos os nossos planos e você enche minha vida de alegria. 🥹"
+              "amor, seu sorriso tem o poder de iluminar até os meus dias mais cinzentos e seu amor é meu porto seguro. 💖"
+              "amor, seu sorriso tem o poder de iluminar até os meus dias mais cinzentos e caminhar ao seu lado é maravilhoso. 💛"
+              "amor, nem nos meus melhores sonhos eu poderia imaginar alguém tão especial quanto você e caminhar ao seu lado é maravilhoso. ✨"
+              "amor, sua risada é a melodia mais bonita que eu poderia ouvir e sua presença é tudo para mim. 🥹"
+              "amor, você é a estrela que guia os meus passos no escuro e pensar em você me traz paz. ✨"
+              "amor, com você, a vida tem muito mais cor e sentido e sua presença é tudo para mim. 🌟"
+              "amor, seu refúgio favorito contra o cansaço do mundo e você enche minha vida de alegria. 🥹"
+              "amor, seu refúgio favorito contra o cansaço do mundo e pensar em você me traz paz. 💞"
+              "amor, você é a estrela que guia os meus passos no escuro e você enche minha vida de alegria. 🌷"
+              "amor, seu sorriso bobo é a coisa mais fofa do mundo e seu carinho me faz bem. 🌷"
+              "amor, seu sorriso é o mapa que me guia para a felicidade e sua presença é tudo para mim. 💛"
+              "amor, você é a certeza bonita que a vida me deu e ter você é uma bênção. 🌹"
+              "amor, obrigado por ser essa pessoa incrível que transborda amor em tudo o que faz e seu amor é meu porto seguro. 💞"
+              "amor, nem nos meus melhores sonhos eu poderia imaginar alguém tão especial quanto você e caminhar ao seu lado é maravilhoso. 💞"
+              "amor, seu sorriso é o mapa que me guia para a felicidade e caminhar ao seu lado é maravilhoso. 💞"
+              "amor, seu refúgio favorito contra o cansaço do mundo e ter você é uma bênção. 💞"
+              "amor, seu olhar me traz uma paz que eu nunca encontrei em nenhum outro lugar e caminhar ao seu lado é maravilhoso. 🌸"
+              "amor, eu amo o seu cheiro, o seu toque e o seu jeitinho único de ser e pensar em você me traz paz. 🌹"
+              "amor, você é a certeza bonita que a vida me deu e caminhar ao seu lado é maravilhoso. 🌷"
+              "amor, seu jeito de olhar para mim faz o tempo parar por um instante e sua presença é tudo para mim. 🌟"
+              "amor, eu amo o seu cheiro, o seu toque e o seu jeitinho único de ser e seu carinho me faz bem. 🌹"
+              "amor, eu amo o jeito que você sonha com o nosso amanhã e você enche minha vida de alegria. 🌸"
+              "amor, seu abraço é o porto onde meu barco finalmente descansa e caminhar ao seu lado é maravilhoso. 🌟"
+              "amor, te amo hoje, amanhã e por toda a eternidade e sua presença é tudo para mim. ✨"
+              "amor, você é a minha melhor história para contar para sempre e caminhar ao seu lado é maravilhoso. 💖"
+              "amor, você é a minha paz quando tudo ao redor é barulho e cada detalhe seu me encanta. 🌸"
+              "amor, acordar sabendo que você existe deixa meu dia muito mais feliz e seu amor é meu porto seguro. 💖"
+              "amor, seu olhar me fascina e me prende de um jeito único e pensar em você me traz paz. ✨"
+              "amor, seu olhar me fascina e me prende de um jeito único e ter você é uma bênção. 🥹"
+              "amor, nem nos meus melhores sonhos eu poderia imaginar alguém tão especial quanto você e cada detalhe seu me encanta. 💖"
+              "amor, sua risada é a melodia mais bonita que eu poderia ouvir e cada detalhe seu me encanta. 🥹"
+              "amor, eu amo o seu cheiro, o seu toque e o seu jeitinho único de ser e sua presença é tudo para mim. 🌟"
+              "amor, acordar sabendo que você existe deixa meu dia muito mais feliz e pensar em você me traz paz. 🥹"
+              "amor, seu abraço é a casa onde meu coração escolheu morar e você enche minha vida de alegria. 🥹"
+              "amor, todo o meu amor, carinho e gratidão são inteiramente seus, hoje e sempre e pensar em você me traz paz. 🌟"
+              "amor, você é o meu sonho mais lindo que virou realidade e sua presença é tudo para mim. 💞"
+              "amor, seu olhar me fascina e me prende de um jeito único e caminhar ao seu lado é maravilhoso. 🌹"
+              "amor, seu abraço é o meu refúgio favorito no mundo inteiro e você enche minha vida de alegria. 🌸"
+              "amor, seu abraço é o único lugar onde eu quero estar e seu carinho me faz bem. ✨"
+              "amor, com você, a vida tem muito mais cor e sentido e seu amor é meu porto seguro. 🌹"
+              "amor, seu perfume é a minha lembrança favorita de você e cada detalhe seu me encanta. ✨"
+              "amor, ao seu lado, eu me sinto em casa em qualquer lugar do mundo e seu carinho me faz bem. 🌟"
+              "amor, você é a razão do meu sorriso mais sincero todos os dias e seu amor é meu porto seguro. 🌟"
+              "amor, obrigado por ser essa pessoa incrível que transborda amor em tudo o que faz e seu amor é meu porto seguro. ✨"
+              "amor, você é a luz que brilha forte no meu horizonte e caminhar ao seu lado é maravilhoso. 💞"
+              "amor, seu refúgio favorito contra o cansaço do mundo e seu amor é meu porto seguro. 🌟"
+              "amor, você é a minha melhor história para contar para sempre e caminhar ao seu lado é maravilhoso. 🌸"
+              "amor, ao seu lado, eu me sinto em casa em qualquer lugar do mundo e cada detalhe seu me encanta. 🌸"
+              "amor, seu sorriso é o mapa que me guia para a felicidade e cada detalhe seu me encanta. 💛"
+              "amor, você é a razão do meu sorriso mais sincero todos os dias e você enche minha vida de alegria. 🥹"
+              "amor, seu perfume é a minha lembrança favorita de você e você é meu sol em dias chuvosos. 🌷"
+              "amor, você é a doçura que equilibra a rotina pesada e caminhar ao seu lado é maravilhoso. 🌷"
+              "amor, você é a minha melhor certeza em meio a tantas dúvidas e sua presença é tudo para mim. 💞"
+              "amor, cada segundo ao seu lado é um tesouro guardado na alma e sua presença é tudo para mim. 🥹"
+              "amor, seu amor me faz sentir gigante diante de qualquer problema e pensar em você me traz paz. 🥹"
+              "amor, você é a melhor parte da minha rotina e de todos os nossos planos e seu carinho me faz bem. 🥹"
+              "amor, você é a doçura e a força que me completam por inteiro e você é meu sol em dias chuvosos. 🌟"
+              "amor, você é a minha alegria diária, sem tirar nem pôr e cada detalhe seu me encanta. 🌷"
+              "amor, você é a estrela que guia os meus passos no escuro e ter você é uma bênção. 💖"
+              "amor, você é a doçura que adoça as minhas horas mais amargas e cada detalhe seu me encanta. 🥹"
+              "amor, sua risada é a melodia mais bonita que eu poderia ouvir e seu carinho me faz bem. 💛"
+              "amor, você é a poesia mais linda que a vida escreveu para mim e você é meu sol em dias chuvosos. 🌸"
+              "amor, até os meus dias comuns viram festa quando você está por perto e caminhar ao seu lado é maravilhoso. 💛"
+              "amor, com você, a vida tem muito mais cor e sentido e você é meu sol em dias chuvosos. ✨"
+              "amor, você é a luz que brilha forte no meu horizonte e caminhar ao seu lado é maravilhoso. 🌷"
+              "amor, nem nos meus melhores sonhos eu poderia imaginar alguém tão especial quanto você e você é meu sol em dias chuvosos. 💞"
+              "amor, você é a doçura que adoça as minhas horas mais amargas e você enche minha vida de alegria. 💛"
+              "amor, você é a razão do meu viver e a paz do meu ser e você enche minha vida de alegria. 🌷"
+              "amor, obrigado por ser essa pessoa incrível que transborda amor em tudo o que faz e pensar em você me traz paz. 💞"
+              "amor, você é o meu sonho mais lindo que virou realidade e caminhar ao seu lado é maravilhoso. ✨"
+             "amor, eu amo a forma como você cuida de mim e dos detalhes da nossa vida e pensar em você me traz paz. 🌟"
+              "amor, você é a minha melhor história para contar para sempre e pensar em você me traz paz. ✨"
+             "amor, eu escolheria você em mil outras vidas, sem hesitar e seu amor é meu porto seguro. 💛"
+             "amor, seu abraço é a casa onde meu coração escolheu morar e seu carinho me faz bem. 🥹"
+             "amor, você é a razão do meu viver e a paz do meu ser e você enche minha vida de alegria. 🌷"
+                    "eu adoro quando você me olha como se eu fosse o seu mundo inteiro. 🌍"
+
+           "estar com você é sinônimo de paz e calmaria na alma. 🕊️"
+
+           "você traz um brilho único para os meus dias mais comuns. ⭐"
+
+            "eu amo a cumplicidade que a gente construiu com tanto carinho. 🔗"
+
+            "seu jeito carinhoso me faz querer ser alguém melhor todos os dias. 🌱"
+
+            "eu amo as nossas conversas que duram horas sem a gente ver o tempo passar. ⏳"
+
+            "você é a minha pessoa favorita em qualquer lugar do universo. 🌌"
+
+            "o seu amor me dá coragem para desbravar o mundo. 🚀"
+
+            "eu amo cada detalhe do seu jeitinho que faz de você única. 🌷"
+
+            "sua presença na minha vida é o maior presente que eu poderia receber. 🎁"
+
+            "eu amo o som da sua risada ecoando por perto. 🎶"
+
+            "com você, eu aprendi que o amor pode ser leve, simples e verdadeiro. 🍃"
+
+            "você é a calmaria que afasta qualquer medo ou incerteza. 🌊"
+
+            "eu adoro o jeito que você se importa com as pequenas coisas. 🔍"
+
+            "seu olhar carrega uma doçura que me fascina todos os dias. 👀"
+
+            "eu amo colecionar momentos felizes tendo você como minha parceira. 📸"
+
+            "você é a resposta de todos os meus pedidos mais bonitos. 🙏"
+
+            "o seu carinho é o melhor refúgio que eu poderia encontrar. 🛋️"
+
+            "eu amo a forma apaixonada com que você vive a sua vida. 🔥"
+
+            "sua inteligência e sensibilidade me encantam profundamente. 🧠"
+
+            "eu amo quando a gente fica em silêncio apenas aproveitando a companhia um do outro. 🤫"
+
+            "você é a tradução exata de aconchego para o meu coração. ☕"
+
+            "eu adoro o jeito fofo que você fica quando está distraída. 🥰"
+
+            "seu amor é a âncora que me mantém firme e seguro. ⚓"
+
+            "eu amo planejar o nosso futuro e ver nossos sonhos ganhando forma. 🏗️"
+
+            "você é o meu pensamento mais bonito do dia e da noite. 🌙"
+
+            "eu amo a liberdade e a leveza que sinto sendo eu mesmo ao seu lado. 🦋"
+
+            "sua generosidade e bondade com o mundo me inspiram muito. 🤲"
+
+            "eu amo cada risada compartilhada e cada abraço apertado. 🫂"
+
+            "você é a melhor escolha que eu fiz e faria mil vezes de novo. 🔄"
+
+            "o seu amor é a trilha sonora mais bonita da minha vida. 🎵"
+
+            "eu te amo hoje, amanhã e por todos os dias que ainda vamos viver. ♾️"
+
+            "seu sorriso é o ponto de paz no meio de qualquer dia caótico. 🎯"
+
+            "eu amo como a sua presença muda completamente o clima do ambiente. ☀️"
+
+            "você é a página mais bonita e feliz da minha história. 📖"
+
+            "eu adoro o jeito que você cuida dos detalhes para me ver sorrir. 🌷"
+
+            "sua companhia transforma qualquer segunda-feira cinzenta em sexta-feira. 🎉"
+
+            "eu amo a segurança que sinto só de saber que você está comigo. 🛡️"
+
+            "você é a harmonia perfeita entre força e doçura. ⚖️"
+
+            "eu adoro quando você inventa moda e me arrasta para as suas ideias. 🚀"
+
+            "seu abraço é a resposta certa para todas as minhas perguntas difíceis. 🧩"
+
+            "eu amo o orgulho que sinto de caminhar de mãos dadas com você. 🤝"
+
+            "você é a pessoa para quem eu quero contar todas as novidades do dia. 🗣️"
+
+            "eu adoro o jeito que os seus olhos brilham quando você fala do que ama. ✨"
+
+            "seu amor me dá a certeza de que o futuro vai ser maravilhoso. 🔮"
+
+            "eu amo a leveza com que você enxerga os altos e baixos da vida. 🎈"
+
+            "você é o meu destino favorito em qualquer mapa ou direção. 🗺️"
+
+            "eu adoro o som da sua voz me desejando um bom dia de manhã. ☕"
+
+            "seu carinho é o abraço que a minha alma pede nos dias difíceis. 🫂"
+
+            "eu amo a sintonia que existe entre a gente, parece telepatia. ⚡"
+
+            "você é a calmaria que afasta qualquer tempestade da minha mente. 🌊"
+
+            "eu adoro colecionar piadas internas e lembranças só nossas. 🤫"
+
+            "seu jeito único de me olhar faz o mundo inteiro desaparecer ao redor. 👁️"
+
+            "eu amo a coragem que você tem para enfrentar os seus desafios. 🦁"
+
+            "você é o aconchego que eu procuro depois de um dia exaustivo. 🛋️"
+
+            "eu adoro a forma como você compartilha suas manias e risadas comigo. 😄"
+
+            "seu amor é a semente que floresce os melhores sentimentos em mim. 🌱"
+
+            "eu amo o jeito que você me aceita exatamente do jeito que eu sou. 🪞"
+
+            "você é a minha inspiração constante para ser uma pessoa melhor. 🌟"
+
+            "eu adoro quando você deita a cabeça no meu ombro e descansa. 💤"
+
+            "seu sorriso bobo é a coisa mais preciosa que eu tenho o privilégio de ver. 😊"
+
+            "eu amo a nossa rotina, mas também amo quando a gente foge dela. 🚗"
+
+            "você é a chave que abre todas as portas do meu coração. 🔑"
+
+            "eu adoro o jeito carinhoso que você inventa apelidos para mim. 🥰"
+
+            "seu amor é o porto onde eu sempre encontro paz para ancorar. ⚓"
+
+            "eu amo a forma como você transforma os dias comuns em datas inesquecíveis. 🎉"
+
+            "você é o meu presente mais valioso e o meu futuro mais esperado. 🎁"
+
+            "eu adoro o calor do seu abraço nos dias de frio. 🧥"
+
+            "seu jeito doce de resolver as coisas me ensina tanto todos os dias. 🍯"
+
+            "eu amo a liberdade que a gente tem de ser bobo um com o outro. 🤪"
+
+            "você é a trilha sonora mais bonita que embala os meus pensamentos. 🎵"
+
+            "eu adoro o brilho que você traz para a minha vida inteira. 💡"
+
+            "seu amor é a certeza mais bonita que o meu coração já abraçou. 💞"
+
+            "eu amo quando a gente faz planos de viajar e conhecer o mundo juntos. ✈️"
+
+           "você é a calmaria que equilibra o meu jeito acelerado. 🧘"
+
+            "eu adoro a cumplicidade que faz a gente se entender sem falar nada. 🔗"
+            "seu olhar é o meu refúgio favorito em meio a qualquer confusão. 🏰"
+            "eu amo o jeito que você vibra com as suas próprias conquistas. 🏆"
+            "você é a doçura que suaviza qualquer momento amargo da rotina. 🍮"
+            "eu adoro a paz que sinto sabendo que tenho você para somar. ➕"
+            "seu amor é o encaixe perfeito que faltava na minha vida. 🧩"
+            "eu te amo de todas as formas possíveis, hoje e para sempre. ♾️"
+
           )
-          
+
           RANDOM_INDEX=$(( RANDOM % ${#MESSAGES[@]} ))
-          SELECTED_MESSAGE="${MESSAGES[$RANDOM_INDEX]}"
-          
+          SELECTED_MESSAGE="${MESSAGES[RANDOM_INDEX]}"
+
           curl -X POST "https://api.twilio.com/2010-04-01/Accounts/$TWILIO_SID/Messages.json" \
             --data-urlencode "Body=$SELECTED_MESSAGE" \
-            --data-urlencode "From=whatsapp:+14155238886" \
-            --data-urlencode "To=whatsapp:+$TO_PHONE_NUMBER" \
+            --data-urlencode "From=whatsapp:$TWILIO_PHONE_NUMBER" \
+            --data-urlencode "To=whatsapp:$TO_PHONE_NUMBER" \
             -u "$TWILIO_SID:$TWILIO_TOKEN"
-            
